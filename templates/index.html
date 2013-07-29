@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset=utf-8>
+    <title>тестовое задание</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.my li').on("click", function(event){
+                $.ajax({
+                    url: "/",
+                    data: "model=" + $(this).attr('par'),
+                    success: function(html){
+                        $("#results").html(html);
+                        }
+                });
+            });
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="/static/css/my.css" media="screen" />
+ </head>
+<body>
+
+            <ul class="my">
+                {% for model in models %}
+                    <li par="{{ model.0 }}">{{ model.1 }}</li>
+                {% endfor %}
+            </ul>
+<div id="results"></div>
+</body>
+</html>

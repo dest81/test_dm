@@ -1,0 +1,16 @@
+<table width="100%" border="1" cellspacing="0" cellpadding="4">
+   <tr align="center" bgcolor="#999999">
+   {% for field in fields %}
+    <td colspan="3" style="font-size: 160%; font-family: sans-serif">{{field}}</td>
+    {% endfor %}
+   </tr>
+    {% for d in data %}
+   <tr align="center">
+   {% for k in d %}
+    <td colspan="3" style="font-size: 160%; font-family: sans-serif">{{k}}</td>
+    {% endfor %}
+   </tr>
+     {% endfor %}
+     {{form}}
+</table>
+
