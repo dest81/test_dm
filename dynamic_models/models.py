@@ -6,7 +6,7 @@ from django.db.models import get_app, get_models, get_model
 from django.conf import settings
 import test_dm.settings as st
 from django.forms.models import modelform_factory
-from django.forms import ModelForm
+from django.forms import ModelForm, Textarea, TextInput,HiddenInput
 
 FIELD_TYPES = {
     'char': models.CharField,

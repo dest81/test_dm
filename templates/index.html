@@ -3,7 +3,11 @@
 <head>
     <meta charset=utf-8>
     <title>тестовое задание</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/my.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui.css" media="screen" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="/static/js/jquery-ui.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.my li').on("click", function(event){
@@ -15,9 +19,10 @@
                         }
                 });
             });
+
         });
     </script>
-    <link rel="stylesheet" type="text/css" href="/static/css/my.css" media="screen" />
+
  </head>
 <body>
 
@@ -27,5 +32,6 @@
                 {% endfor %}
             </ul>
 <div id="results"></div>
+
 </body>
 </html>

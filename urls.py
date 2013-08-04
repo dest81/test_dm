@@ -7,6 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
 
     (r'^$', views.index,{'app':'dynamic_models'}),
+    (r'^addrow/$', views.index,{'app':'dynamic_models'}),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

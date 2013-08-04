@@ -1,7 +1,7 @@
-<table width="100%" border="1" cellspacing="0" cellpadding="4">
+<table width="80%" border="1" cellspacing="0" cellpadding="4">
    <tr align="center" bgcolor="#999999">
    {% for field in fields %}
-    <td colspan="3" style="font-size: 160%; font-family: sans-serif">{{field}}</td>
+    <td colspan="3">{{field}}</td>
     {% endfor %}
    </tr>
     {% for d in data %}
@@ -11,6 +11,31 @@
     {% endfor %}
    </tr>
      {% endfor %}
-     {{form}}
-</table>
 
+</table>
+<script type="text/javascript">
+    $('#myForm').ajaxForm({
+        success:function(html) {
+            $("#myForm").resetForm();
+            $("#results").html(html);
+        },
+        beforeSubmit:function() {
+        }
+    });
+
+
+</script>
+<script type="text/javascript">
+$(".datepicker1").datepicker({
+monthNames:["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+dayNamesMin:["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+firstDay:1,
+dateFormat:"dd.mm.yy"
+});
+</script>
+<form id="myForm" method = "POST" action="/addrow/?model={{ modelnm }}">
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" value="    Зберегти     ">
+</form>
