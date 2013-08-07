@@ -1,0 +1,16 @@
+html, body {
+   padding: 0;
+   margin:0;
+   width:100%;
+   font-size: 12px;
+   font-family: Arial;
+}
+
+.my {
+  cursor: pointer;
+}
+
+ul, li {
+    padding: 100;
+    margin: 100;
+}

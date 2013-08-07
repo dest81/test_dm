@@ -1,4 +1,22 @@
-<table width="80%" border="1" cellspacing="0" cellpadding="4">
+<script type="text/javascript">
+    $("#table1").on('click', 'td', function(){
+        $(this).html("<input type='text'  value='"+$(this).text()+"' id='editor1' par='"+$(this).attr('par')+"'/>");
+        $("#editor1").focus()
+    }).on('click', 'td input', function(){
+                return false;
+            }).on('blur', 'td input', function(){
+                $(this).parent('td').text($(this).val());
+                $.ajax({
+                    url: "/edit/",
+                    data: "model=" + $(this).attr('par'),
+                    success: function(html){
+                        $("#results1").html(html);
+                    }
+                });
+            });
+</script>
+<div id="results1"></div>
+<table id="table1" width="80%" border="1" cellspacing="0" cellpadding="4">
    <tr align="center" bgcolor="#999999">
    {% for field in fields %}
     <td colspan="3">{{field}}</td>
@@ -7,7 +25,7 @@
     {% for d in data %}
    <tr align="center">
    {% for k in d %}
-    <td colspan="3" style="font-size: 160%; font-family: sans-serif">{{k}}</td>
+    <td colspan="3" style="font-size: 160%; font-family: sans-serif" par={{ model }}>{{k}}</td>
     {% endfor %}
    </tr>
      {% endfor %}
@@ -25,6 +43,7 @@
 
 
 </script>
+
 <script type="text/javascript">
 $(".datepicker1").datepicker({
 monthNames:["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
@@ -33,9 +52,13 @@ firstDay:1,
 dateFormat:"dd.mm.yy"
 });
 </script>
+
+
+
 <form id="myForm" method = "POST" action="/addrow/?model={{ modelnm }}">
     <table>
         {{ form }}
     </table>
     <input type="submit" value="    Зберегти     ">
 </form>
+
